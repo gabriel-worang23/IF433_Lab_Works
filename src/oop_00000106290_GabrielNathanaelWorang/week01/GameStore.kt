@@ -4,5 +4,10 @@ fun main() {
     val gameTitle: String = "Elden Ring: Shadow of the Erdtree"
     val price: Int = 599000
 
-    println("Data Game Berhasil Disiapkan: $gameTitle dengan harga Rp $price")
+    val discountPercent = calculateDiscount(price)
+
+    println("Game: $gameTitle")
+    println("Diskon yang didapat: $discountPercent%")
 }
+
+fun calculateDiscount(price: Int): Int = if (price > 500000) 20 else 10
