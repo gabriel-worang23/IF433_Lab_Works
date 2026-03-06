@@ -11,4 +11,15 @@ fun main() {
     myCar.openTrunk()
     myCar.honk()
     myCar.accelerate()
+
+    println("\n --- Testing Electric Car ---")
+    // Inisialisasi dengan brand, jumlah pintu, dan kapasitas baterai
+    val myEv = ElectricCar("Tesla Model 3", 4, 85)
+
+    // Memanggil method yang sudah di-override dan di-final-kan
+    myEv.accelerate()
+
+    // Memanggil method warisan dari class Car
+    myEv.honk()
+    myEv.openTrunk()
 }
