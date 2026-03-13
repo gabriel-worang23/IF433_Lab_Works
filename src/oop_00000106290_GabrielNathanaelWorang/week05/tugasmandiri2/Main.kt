@@ -8,13 +8,22 @@ fun main() {
 
     val nominalTransaksi = 75000.0
 
-    println("=== Simulasi Pembayaran E-Commerce ===")
+    println("=== Simulasi Pembayaran dengan Smart Casting ===\n")
 
     for (method in paymentMethods) {
-        println("Memproses metode pembayaran: ${method.accountName}")
+        println("Memproses: ${method.accountName}")
 
         method.processPayment(nominalTransaksi)
 
-        println("--------------------------------------")
+        if (method is EWallet) {
+            println("-> Sistem mendeteksi E-Wallet. Saldo mungkin kurang.")
+
+            method.topUp(50000.0)
+
+            println("-> Mencoba pembayaran ulang setelah Top Up:")
+            method.processPayment(nominalTransaksi)
+        }
+
+        println("----------------------------------------------")
     }
 }
